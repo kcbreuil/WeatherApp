@@ -17,6 +17,9 @@ const CitySearch = () => {
 
   return (
     <div>
+      <header>
+        <h1>WeatherApp</h1>
+      </header>
       <h1>City Search</h1>
       <input type="text" onChange={handleSearch} />
       {citySearch.map((city) => (
