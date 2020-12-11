@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloud } from '@fortawesome/free-solid-svg-icons';
 import '../styles/style.css';
 
 const CitySearch = () => {
@@ -16,18 +18,23 @@ const CitySearch = () => {
   };
 
   return (
-    <div>
+    <>
       <header>
         <h1>WeatherApp</h1>
       </header>
-      <h1>City Search</h1>
-      <input type="text" onChange={handleSearch} />
-      {citySearch.map((city) => (
-        <div key={city.id}>
-          <Link to={`/cities/${city.id}`}>{city.name}</Link>
-        </div>
-      ))}
-    </div>
+      <div className="center">
+        <h1>City Search</h1>
+        <input type="text" onChange={handleSearch} />
+        {citySearch.map((city) => (
+          <div classname="results" key={city.id}>
+            <Link to={`/cities/${city.id}`}>{city.name}</Link>
+          </div>
+        ))}
+      </div>
+      <footer className="icon">
+        <FontAwesomeIcon icon={faCloud} />
+      </footer>
+    </>
   );
 };
 
